@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Update Application{% endblock %}
+
+{% block content %}
+<h2>Update Application</h2>
+<form action="/applications/{{ application.id }}/edit" method="post">
+    <label for="tenant_id">Tenant:</label>
+    <select id="tenant_id" name="tenant_id" required>
+        {% for tenant in tenants %}
+            <option value="{{ tenant.id }}" {% if tenant.id == application.tenant.id %}selected{% endif %}>
+                {{ tenant.name }}
+            </option>
+        {% endfor %}
+    </select><br>
+
+    <label for="status">Status:</label>
+    <input type="text" id="status" name="status" value="{{ application.status }}" required><br>
+
+    <button type="submit">Update</button>
+</form>
+{% endblock %}

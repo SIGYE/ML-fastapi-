@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Applications{% endblock %}
+
+{% block content %}
+<h2>Applications</h2>
+<ul>
+    {% for application in applications %}
+        <li>
+            <a href="/applications/{{ application.id }}">
+                {{ application.tenant.name }} - {{ application.status }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="/applications/create">Add New Application</a>
+{% endblock %}

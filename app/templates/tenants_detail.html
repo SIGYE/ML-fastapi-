@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Tenant Details{% endblock %}
+
+{% block content %}
+<h2>{{ tenant.name }}</h2>
+<p>Email: {{ tenant.email }}</p>
+<p>Phone Number: {{ tenant.phone_number }}</p>
+<p>Address: {{ tenant.address }}</p>
+
+<a href="/tenants/{{ tenant.id }}/edit">Edit</a> |
+<a href="/tenants/{{ tenant.id }}/delete">Delete</a>
+{% endblock %}

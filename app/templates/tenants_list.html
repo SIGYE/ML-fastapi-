@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Tenants{% endblock %}
+
+{% block content %}
+<h2>Tenants</h2>
+<ul>
+    {% for tenant in tenants %}
+        <li>
+            <a href="/tenants/{{ tenant.id }}">
+                {{ tenant.name }} - {{ tenant.email }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="/tenants/create">Add New Tenant</a>
+{% endblock %}

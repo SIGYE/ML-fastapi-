@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Application Details{% endblock %}
+
+{% block content %}
+<h2>Application Details</h2>
+<p>Tenant: {{ application.tenant.name }}</p>
+<p>Status: {{ application.status }}</p>
+<p>Date Submitted: {{ application.date_submitted }}</p>
+
+<a href="/applications/{{ application.id }}/edit">Edit</a> |
+<a href="/applications/{{ application.id }}/delete">Delete</a>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Update Payment{% endblock %}
+
+{% block content %}
+<h2>Update Payment</h2>
+<form action="/payments/{{ payment.id }}/edit" method="post">
+    <label for="tenant_id">Tenant:</label>
+    <select id="tenant_id" name="tenant_id" required>
+        {% for tenant in tenants %}
+            <option value="{{ tenant.id }}" {% if tenant.id == payment.tenant.id %}selected{% endif %}>
+                {{ tenant.name }}
+            </option>
+        {% endfor %}
+    </select><br>
+
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" value="{{ payment.amount }}" step="0.01" required><br>
+
+    <label for="payment_date">Payment Date:</label>
+    <input type="date" id="payment_date" name="payment_date" value="{{ payment.payment_date }}" required><br>
+
+    <button type="submit">Update</button>
+</form>
+{% endblock %}
